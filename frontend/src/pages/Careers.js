@@ -1,72 +1,28 @@
 import React from 'react';
-import { Box, Container, Typography, Button, Grid, Card, CardContent } from '@mui/material';
+import { Box, Container, Typography, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const Careers = () => {
+  const navigate = useNavigate();
+
   return (
-    <Box sx={{ bgcolor: 'background.paper', py: 12, minHeight: '100vh' }}>
+    <Box sx={{ bgcolor: 'background.default', py: 12, minHeight: '100vh', textAlign: 'center' }}>
       <Container>
-        <Typography variant="h2" align="center" gutterBottom color="text.primary">
-          Careers at Hono Technology
+        <Button variant="outlined" color="primary" onClick={() => navigate(-1)} sx={{ mb: 4 }}>
+          Back
+        </Button>
+        <Typography variant="h2" gutterBottom>
+          Careers
         </Typography>
-        <Typography variant="body1" align="center" color="text.secondary" sx={{ mb: 6 }}>
-          Join us to work on groundbreaking projects that shape the future of technology, powered by Zvertex AI.
+        <Typography variant="h4" sx={{ mb: 4, color: 'text.secondary' }}>
+          Feature Coming Soon!
         </Typography>
-        <Typography variant="h4" gutterBottom color="text.primary">
-          Futuristic Projects
+        <Typography variant="body1" sx={{ mb: 6, maxWidth: '600px', mx: 'auto' }}>
+          We’re working hard to bring you exciting career opportunities at Hono Technology. Stay tuned for updates on how you can join our team and work on cutting-edge projects with Zvertex AI.
         </Typography>
-        <Grid container spacing={4} sx={{ mb: 6 }}>
-          <Grid item xs={12} md={4}>
-            <Card sx={{ bgcolor: 'background.paper' }}>
-              <CardContent>
-                <Typography variant="h6" color="primary">AI-Powered Healthcare</Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Developing smart diagnostics and patient care systems.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <Card sx={{ bgcolor: 'background.paper' }}>
-              <CardContent>
-                <Typography variant="h6" color="primary">Sustainable Cloud Solutions</Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Building eco-friendly infrastructure for global enterprises.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <Card sx={{ bgcolor: 'background.paper' }}>
-              <CardContent>
-                <Typography variant="h6" color="primary">Next-Gen Mobile Apps</Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Creating intuitive apps with AI-driven personalization.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
-        <Typography variant="h4" gutterBottom color="text.primary">
-          Opportunities
-        </Typography>
-        <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
-          - **Internships**: Gain hands-on experience with real-world projects.<br />
-          - **Part-Time**: Flexible roles for students and professionals.<br />
-          - **Full-Time**: Lead innovation with a dynamic team.
-        </Typography>
-        <Box sx={{ textAlign: 'center' }}>
-          <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
-            Ready to join us? Apply now!
-          </Typography>
-          <Button
-            variant="contained"
-            color="secondary"
-            href="mailto:Hr@honotech.com?subject=Career%20Application"
-            size="large"
-          >
-            Apply Now
-          </Button>
-        </Box>
+        <Button variant="contained" color="accent" href="mailto:Hr@honotech.com" size="large">
+          Contact Us for Inquiries
+        </Button>
       </Container>
     </Box>
   );

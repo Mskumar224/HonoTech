@@ -1,69 +1,41 @@
-import React, { useState } from 'react';
-import { Box, Container, Typography, TextField, Button } from '@mui/material';
-import axios from 'axios';
+import React from 'react';
+import { Box, Container, Typography, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState('');
-
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/contact`, formData);
-      setStatus(response.data.message);
-      setFormData({ name: '', email: '', message: '' });
-    } catch (error) {
-      setStatus('Failed to send message');
-    }
-  };
+  const navigate = useNavigate();
 
   return (
-    <Box sx={{ py: 8 }}>
+    <Box sx={{ bgcolor: '#FFFFFF', py: 12, minHeight: '100vh' }}>
       <Container maxWidth="md">
-        <Typography variant="h4" align="center" gutterBottom>Contact Us</Typography>
-        <Typography variant="body1" align="center" sx={{ mb: 4 }}>
-          Reach out to us for inquiries, support, or collaboration opportunities.
+        <Button
+          variant="outlined"
+          onClick={() => navigate(-1)}
+          sx={{ mb: 4 }}
+        >
+          Back
+        </Button>
+        <Typography variant="h2" gutterBottom>
+          Contact Us
         </Typography>
-        <form onSubmit={handleSubmit}>
-          <TextField
-            label="Full Name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            fullWidth
-            margin="normal"
-            required
-          />
-          <TextField
-            label="Email Address"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            fullWidth
-            margin="normal"
-            required
-          />
-          <TextField
-            label="Your Message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            fullWidth
-            margin="normal"
-            multiline
-            rows={5}
-            required
-          />
-          <Button type="submit" variant="contained" color="primary" sx={{ mt: 3 }}>
-            Submit Inquiry
-          </Button>
-        </form>
-        {status && (
-          <Typography sx={{ mt: 2, color: status.includes('Failed') ? 'red' : 'green', textAlign: 'center' }}>
-            {status}
-          </Typography>
-        )}
+        <Typography variant="body1" sx={{ mb: 4 }}>
+          Reach out to us for any inquiries or support. We’re here to help you succeed with our IT solutions.
+        </Typography>
+        <Typography variant="body1" sx={{ mb: 2 }}>
+          <strong>Email:</strong>{' '}
+          <a href="mailto:Hr@honotech.com" style={{ color: '#00AEEF' }}>
+            Hr@honotech.com
+          </a>
+        </Typography>
+        <Typography variant="body1" sx={{ mb: 2 }}>
+          <strong>Phone:</strong> +1 737-239-0920
+        </Typography>
+        <Typography variant="body1" sx={{ mb: 4 }}>
+          <strong>Address:</strong> 5900 Balcones Dr #16790, Austin, Texas 78731
+        </Typography>
+        <Button variant="contained" href="mailto:Hr@honotech.com">
+          Send Email
+        </Button>
       </Container>
     </Box>
   );

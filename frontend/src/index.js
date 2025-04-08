@@ -1,11 +1,17 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client'; // Updated import
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './theme';
 
-const container = document.getElementById('root');
-const root = createRoot(container); // Create a root
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ThemeProvider>
   </React.StrictMode>
 );

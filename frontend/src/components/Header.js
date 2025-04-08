@@ -14,17 +14,10 @@ const Header = () => {
   };
 
   return (
-    <AppBar
-      position="fixed"
-      sx={{ bgcolor: 'primary.main', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)' }}
-    >
+    <AppBar position="fixed" sx={{ bgcolor: 'primary.main', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)' }}>
       <Container>
         <Toolbar sx={{ py: 2 }}>
-          <Button
-            component={Link}
-            to="/"
-            sx={{ flexGrow: 1, textAlign: 'left', p: 0 }}
-          >
+          <Button component={Link} to="/" sx={{ flexGrow: 1, textAlign: 'left', p: 0 }}>
             <Typography variant="h6" sx={{ fontWeight: 800, color: '#FFFFFF' }}>
               Hono Technology
             </Typography>
@@ -38,7 +31,6 @@ const Header = () => {
           <Button color="inherit" component={Link} to="/about" sx={{ mx: 1, color: '#FFFFFF' }}>
             About Us
           </Button>
-
           <Button color="inherit" onClick={handleServicesClick} sx={{ mx: 1, color: '#FFFFFF' }}>
             Services
           </Button>
@@ -58,7 +50,6 @@ const Header = () => {
               </MenuItem>
             ))}
           </Menu>
-
           <Button color="inherit" onClick={handleCompanyClick} sx={{ mx: 1, color: '#FFFFFF' }}>
             Company
           </Button>
@@ -74,27 +65,16 @@ const Header = () => {
               </MenuItem>
             ))}
           </Menu>
-
           <Button color="inherit" component={Link} to="/careers" sx={{ mx: 1, color: '#FFFFFF' }}>
             Careers
           </Button>
           <Button color="inherit" component={Link} to="/blog" sx={{ mx: 1, color: '#FFFFFF' }}>
             Blog
           </Button>
-          <Button
-            color="inherit"
-            component={Link}
-            to="/contact"
-            sx={{ mx: 1, color: '#FFFFFF' }}
-          >
+          <Button color="inherit" component={Link} to="/contact" sx={{ mx: 1, color: '#FFFFFF' }}>
             Contact
           </Button>
-          <Button
-            color="inherit"
-            href="https://zvertexai.com"
-            target="_blank"
-            sx={{ mx: 1, color: '#FFFFFF' }}
-          >
+          <Button color="inherit" href="https://zvertexai.com" target="_blank" sx={{ mx: 1, color: '#FFFFFF' }}>
             Zvertex AI
           </Button>
         </Toolbar>
